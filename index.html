@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etikpleje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="Etikpleje.png" alt="Etikpleje Logo">
+            <a href="#contact">Kontakt</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-content">
+                <h1>Velkommen til Etikpleje</h1>
+                <p>Pleje med respekt og borgeren i centrum. Vi er en lokal personplejer-virksomhed, der fokuserer på de ældre og deres behov. Med en personlig tilgang sikrer vi, at alle føler sig set og hørt.</p>
+                <p>Vi er godkendt af Hedensted Kommune som privat leverandør inden for pleje og omsorg.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <h2>Hvem er vi?</h2>
+                <p>Vi er Camilla og Milan Maidan, et ægtepar med en passion for at hjælpe andre. Camilla er social- og sundhedshjælper, mens Milan er socialpædagog med diplom i neuropædagogik og neuropsykologi. Sammen har vi dannet Etikpleje for at sikre, at vores ældre får den respektfulde og kompetente pleje, de fortjener.</p>
+                <p>Vi har mange års erfaring i pleje og omsorg fra både Hedensted og Vejle kommuner.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <img src="pleje.jpeg" alt="Billede af pleje">
+            </div>
+        </div>
+
+        <div id="contact" class="contact">
+            <div class="contact-content">
+                <h2>Kontakt os</h2>
+                <form action="https://example.com/send-email" method="POST">
+                    <label for="name">Navn</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Besked</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Send Besked</button>
+                </form>
+
+                <div class="quick-buttons">
+                    <a href="tel:+4531310542"><span class="icon">📞</span>Ring til os</a>
+                    <a href="mailto:info@etikpleje.dk"><span class="icon">✉️</span>Send en email</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-boxes">
+            <div class="info-box">
+                <h3>Døgnpleje</h3>
+                <p>Vi tilbyder pleje og omsorg døgnet rundt, så du altid kan få den hjælp, du har brug for.</p>
+            </div>
+            <div class="info-box">
+                <h3>Personlig Pleje</h3>
+                <p>Vi hjælper med personlig hygiejne, påklædning og andre daglige gøremål med respekt for din værdighed.</p>
+            </div>
+            <div class="info-box">
+                <h3>Medicinhåndtering</h3>
+                <p>Sikker og professionel håndtering af din medicin, så du altid får den rette dosis på det rette tidspunkt.</p>
+            </div>
+        </div>
+
+        <div class="reviews">
+            <div class="reviews-content">
+                <h2>Tidligere Kunder og Anmeldelser</h2>
+                <div class="review">
+                    <p><strong>John Hansen</strong>:</p>
+                    <p>"Fantastisk service og en personlig tilgang, som gjorde en stor forskel for vores familie."</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="review">
+                    <p><strong>Anna Nielsen</strong>:</p>
+                    <p>"Professionelle og omsorgsfulde. Jeg følte mig tryg hele vejen igennem."</p>
+                    <p>⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Etikpleje</p>
+        <p>Adresse: Hejrevej 16, 7100 Vejle</p>
+        <p>Telefon: <a href="tel:+4531310542">+45 31 31 05 42</a> | Email: <a href="mailto:info@etikpleje.dk">info@etikpleje.dk</a></p>
+        <p>CVR: 42911895</p>
+    </footer>
+
+    <script>
+        document.querySelector('header a').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
