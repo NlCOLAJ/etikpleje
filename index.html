@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etikpleje</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 <body>
+    <div class="background-wrapper">
+        <img src="baggrund.png" alt="Background">
+    </div>
+
     <header>
         <div class="header-content">
-            <img src="Etikpleje.png" alt="Etikpleje Logo">
+            <img src="Logo.png" alt="Etikpleje Logo">
             <a href="#contact">Kontakt</a>
         </div>
     </header>
@@ -17,9 +22,18 @@
     <div class="container">
         <div class="section">
             <div class="section-content">
-                <h1>Velkommen til Etikpleje</h1>
-                <p>Pleje med respekt og borgeren i centrum. Vi er en lokal personplejer-virksomhed, der fokuserer på de ældre og deres behov. Med en personlig tilgang sikrer vi, at alle føler sig set og hørt.</p>
-                <p>Vi er godkendt af Hedensted Kommune som privat leverandør inden for pleje og omsorg.</p>
+                <div class="welcome-section">
+                    <h1 class="welcome-heading"><span class="brand-name"><span class="etik">Velkommen til Etik</span><span class="pleje">pleje</span></span></h1>
+                    <div class="welcome-content">
+                        <div class="welcome-text">
+                            <p>Vi er en lokal personplejer-virksomhed, der fokuserer på de ældre og deres behov. Med en personlig tilgang sikrer vi, at alle føler sig set og hørt.</p>
+                        </div>
+                        <img src="milan-camilla.jpg" alt="Billede af Milan og Camilla">
+                        <div class="approval-box">
+                            <p>Vi er godkendt af Hedensted Kommune som privat leverandør inden for pleje og omsorg.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -31,32 +45,75 @@
             </div>
         </div>
 
-        <div class="section">
-            <div class="section-content">
-                <img src="pleje.jpeg" alt="Billede af pleje">
-            </div>
-        </div>
-
         <div id="contact" class="contact">
             <div class="contact-content">
                 <h2>Kontakt os</h2>
-                <form action="https://example.com/send-email" method="POST">
+                <form id="web3form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="27591141-3004-4d95-afe7-daf7ffd65b96">
+                
                     <label for="name">Navn</label>
                     <input type="text" id="name" name="name" required>
-
+                
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
-
+                
                     <label for="message">Besked</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
-
+                
                     <button type="submit">Send Besked</button>
                 </form>
+                
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    Tak! Formularen er blevet indsendt. Vi svarer dig snart!
+                </div>
+
+                <script>
+                    const form = document.getElementById("web3form");
+                    const successMessage = document.getElementById("successMessage");
+
+                    form.addEventListener("submit", async function (event) {
+                        event.preventDefault(); // Forhindre standard formular-indsendelse
+                        const formData = new FormData(form);
+
+                        try {
+                            const response = await fetch(form.action, {
+                                method: "POST",
+                                body: formData,
+                            });
+
+                            if (response.ok) {
+                                form.style.display = "none"; // Skjul formularen
+                                successMessage.style.display = "block"; // Vis beskeden
+
+                                // Start fade-out efter et kort interval
+                                setTimeout(() => {
+                                    successMessage.style.opacity = "0"; // Skru ned for synlighed
+                                }, 4000); // Vent 2 sekunder før fade-out starter
+
+                                // Skjul beskeden helt efter 5 sekunder
+                                setTimeout(() => {
+                                    successMessage.style.display = "none";
+                                }, 10000); // Vent 7 sekunder totalt (2 + 5)
+                            } else {
+                                alert("Noget gik galt. Prøv igen.");
+                            }
+                        } catch (error) {
+                            alert("Der opstod en fejl ved indsendelse af formularen.");
+                        }
+                    });
+                </script>                
 
                 <div class="quick-buttons">
                     <a href="tel:+4531310542"><span class="icon">📞</span>Ring til os</a>
                     <a href="mailto:info@etikpleje.dk"><span class="icon">✉️</span>Send en email</a>
                 </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <img src="pleje.jpeg" alt="Billede af pleje">
             </div>
         </div>
 
@@ -100,9 +157,17 @@
     </footer>
 
     <script>
+        // Smooth scroll to contact section
         document.querySelector('header a').addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const background = document.querySelector('.background-wrapper img');
+            background.style.transform = `translate3d(0, ${scrolled * 0.5}px, 0) scale(1.1)`;
         });
     </script>
 </body>
