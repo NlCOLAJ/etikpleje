@@ -81,7 +81,7 @@ header a:hover {
 /* Container and section styles */
 .container {
     width: 100%;
-    padding-top: 80px;
+    padding-top: 70px;
     position: relative;
     z-index: 1;
 }
@@ -150,8 +150,8 @@ p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 60px 100px;
-    background: rgba(255, 255, 255, 0.5);
+    padding: 60px 10%;
+    background: rgba(244, 244, 244, 0.5);
 }
 
 .info-box {
@@ -201,6 +201,7 @@ p {
     border-radius: 5px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
 }
 
 .contact input:focus, 
@@ -211,7 +212,7 @@ p {
 
 .contact button {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     border: none;
     background: #499993;
     color: white;
@@ -255,7 +256,7 @@ p {
 .reviews {
     width: 100%;
     padding: 60px 0;
-    background: rgba(244, 244, 244, 0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .reviews-content {
@@ -279,29 +280,52 @@ p {
     font-weight: 600;
 }
 
-/* Footer */
+/* Footer styles */
 footer {
     width: 100%;
-    padding: 40px 20px;
+    padding: 12px 20px;
     background: #499993;
     color: white;
     text-align: center;
+    font-size: 0.85em;
 }
 
 footer p {
-    margin: 5px 0;
-    font-size: 0.9em;
+    margin: 0;
+    display: inline;
+}
+
+footer p:not(:last-child)::after {
+    content: '|';
+    margin: 0 8px;
+    opacity: 0.5;
 }
 
 footer a {
     color: white;
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 footer a:hover {
-    opacity: 1;
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 15px;
+        line-height: 1.6;
+    }
+    
+    footer p {
+        display: block;
+    }
+    
+    footer p:not(:last-child)::after {
+        display: none;
+    }
 }
 
 .icon {
@@ -356,19 +380,19 @@ footer a:hover {
     max-width: 500px;
     font-size: 1.1rem;
     line-height: 1.6;
-    order: 1;
+    order: 3;
 }
 
 .welcome-content img {
-    width: 25%;
-    height: auto;
-    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
     order: 2;
-    margin-left: 0;
 }
 
 .approval-box {
-    order: 3;
+    order: 1;
     background-color: #499993;
     color: white;
     padding: 15px 25px;
@@ -402,10 +426,6 @@ footer a:hover {
         width: auto;
         text-align: center;
     }
-
-    .welcome-content img {
-        width: 60%;
-    }
     
     .welcome-text {
         padding: 0 20px;
@@ -413,5 +433,103 @@ footer a:hover {
     
     .approval-box {
         width: calc(100% - 100px);
+    }
+}
+
+/* Video section styles */
+.video-section {
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.video-container {
+    display: flex;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.video-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensures button aligns left */
+}
+
+.video-text h2 {
+    color: #499993;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+}
+
+.video-text p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.video-wrapper {
+    flex: 1;
+    aspect-ratio: 16/9; /* Forces 16:9 aspect ratio */
+    width: 100%;
+    max-width: 560px; /* Prevents video from getting too large */
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #499993;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Ensures button stays left-aligned */
+}
+
+.video-btn:hover {
+    background: #3a7071;
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .video-text {
+        text-align: center;
+        align-items: center; /* Centers content on mobile */
+    }
+    
+    .video-text h2 {
+        text-align: center;
+    }
+    
+    .video-text p {
+        text-align: center;
+    }
+    
+    .video-wrapper {
+        width: 100%;
+    }
+
+    .video-btn {
+        align-self: center; /* Centers button on mobile */
     }
 }
