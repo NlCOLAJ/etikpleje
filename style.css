@@ -1,411 +1,194 @@
-/* ==========================================================================
-   Base Styles and Imports
-   ========================================================================== */
-   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
 
-   /* ==========================================================================
-      Reset and Base Styles
-      ========================================================================== */
-   html, body {
-       margin: 0;
-       padding: 0;
-       overflow-x: hidden;
-       height: 100%;
-   }
-   
-   body {
-       font-family: 'Open Sans', sans-serif;
-       line-height: 1.6;
-       color: #333;
-       font-weight: 300;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       background: transparent;
-   }
-   
-   body::-webkit-scrollbar {
-       display: none;
-   }
-   
-   /* ==========================================================================
-      Typography
-      ========================================================================== */
-   h1, h2, h3 {
-       color: #499993;
-       margin-bottom: 30px;
-       font-weight: 600;
-   }
-   
-   h1 {
-       font-size: 2.5em;
-   }
-   
-   h2 {
-       font-size: 2em;
-   }
-   
-   p {
-       margin-bottom: 20px;
-       font-size: 1.1em;
-       line-height: 1.8;
-   }
-   
-   .brand-name {
-       font-weight: 800;
-   }
-   
-   .brand-name .etik {
-       color: #499993;
-   }
-   
-   .brand-name .pleje {
-       color: #3a7071;
-   }
-   
-   /* ==========================================================================
-      Layout & Container Styles
-      ========================================================================== */
-   .container {
-       width: 100%;
-       padding-top: 70px;
-       position: relative;
-       z-index: 1;
-   }
-   
-   .section {
-       width: 100%;
-       padding: 30px 0;
-       background: rgba(255, 255, 255, 0.5);
-       transition: background-color 0.3s ease;
-   }
-   
-   .section:nth-child(even) {
-       background: rgba(244, 244, 244, 0.5);
-   }
-   
-   .section-content {
-       max-width: 900px;
-       margin: 0 auto;
-       padding: 0 20px;
-       text-align: center;
-   }
-   
-   /* ==========================================================================
-      Header Styles
-      ========================================================================== */
-   header {
-       width: 100%;
-       position: fixed;
-       top: 0;
-       left: 0;
-       z-index: 1000;
-       background: rgba(255, 255, 255, 0.93);
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-   }
-   
-   .header-content {
-       max-width: 900px;
-       margin: 0 auto;
-       padding: 10px;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-   }
-   
-   header img {
-       height: 60px;
-       transition: transform 0.3s ease;
-   }
-   
-   header img:hover {
-       transform: scale(1.05);
-   }
-   
-   .header-button {
-       text-decoration: none;
-       color: white;
-       font-weight: 600;
-       padding: 10px 20px;
-       border-radius: 5px;
-       background: #499993;
-       transition: all 0.3s ease;
-   }
-   
-   .header-button:hover {
-       background: #3a7071;
-       transform: translateY(-2px);
-       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-   }
-   
-   /* ==========================================================================
-      Welcome Section Styles
-      ========================================================================== */
-   .welcome-block {
-       text-align: center;
-       margin-bottom: 40px;
-   }
-   
-   .welcome-content {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       gap: 20px;
-   }
-   
-   .welcome-text {
-       text-align: center;
-       max-width: 500px;
-       font-size: 1.1rem;
-       line-height: 1.6;
-       order: 3;
-   }
-   
-   .fade-image {
-       width: 400px;
-       height: 250px;
-       object-fit: cover;
-       border-radius: 5%;
-       order: 2;
-       transition: opacity 1s ease-in-out, transform 0.3s ease;
-   }
-   
-   .fade-image:hover {
-       transform: scale(1.02);
-   }
-   
-   .approval-box {
-       order: 1;
-       background-color: #499993;
-       color: white;
-       padding: 15px 25px;
-       border-radius: 8px;
-       margin-top: 20px;
-       width: 100%;
-       max-width: 500px;
-       text-align: center;
-       transition: transform 0.3s ease, box-shadow 0.3s ease;
-   }
-   
-   .approval-box:hover {
-       transform: translateY(-3px);
-       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-   }
-   
-   .approval-box p {
-       margin: 0;
-       color: white;
-       font-weight: 600;
-   }
-   
-   /* ==========================================================================
-      Background Styles
-      ========================================================================== */
-   .background-wrapper {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100vw;
-       height: 100vh;
-       z-index: -1;
-   }
-   
-   .background-wrapper img {
-       min-width: 100vw;
-       min-height: 100vh;
-       object-fit: cover;
-       transform: scale(1.1);
-       display: block;
-   }
-
-   /* ==========================================================================
-   Video Section Styles
-   ========================================================================== */
-.video-block {
-    padding: 60px 0;
-    background: rgba(244, 244, 244, 0.5);
+/* Reset and base styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
 }
 
-.video-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.video-text {
-    flex: 1;
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 300;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    background: transparent;
 }
 
-.video-text h2 {
-    text-align: left;
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.background-wrapper img {
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    transform: scale(1.1);
+    display: block;
+}
+
+/* Header styles */
+header {
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.93);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.video-text p {
-    text-align: left;
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.video-wrapper {
-    flex: 1;
-    aspect-ratio: 16/9;
-    width: 100%;
-    max-width: 560px;
-    transition: transform 0.3s ease;
+header img {
+    height: 60px;
 }
 
-.video-wrapper:hover {
-    transform: translateY(-5px);
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.video-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #499993;
-    color: white;
+header a {
     text-decoration: none;
-    border-radius: 5px;
+    color: white;
     font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #499993;
     transition: all 0.3s ease;
-    align-self: flex-start;
 }
 
-.video-btn:hover {
+header a:hover {
     background: #3a7071;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ==========================================================================
-   Pricing Section Styles
-   ========================================================================== */
-.pricing-block {
+/* Container and section styles */
+.container {
+    width: 100%;
+    padding-top: 70px;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    width: 100%;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.section:nth-child(even) {
     background: rgba(244, 244, 244, 0.5);
-    padding: 60px 0;
 }
 
-.pricing-grid {
+.section-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Typography */
+h1, h2 {
+    color: #499993;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.brand-name {
+    font-weight: 800;
+}
+
+.brand-name .etik {
+    color: #499993;
+}
+
+.brand-name .pleje {
+    color: #3a7071;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Images */
+.section img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Info boxes */
+.info-boxes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0px auto;
+    margin-bottom: 60px;
+    padding: 0 20px;
 }
 
-.pricing-card {
+.info-box {
     background: white;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.pricing-card:hover {
+.info-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.pricing-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #499993;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.pricing-card:hover::before {
-    transform: scaleX(1);
-}
-
-.pricing-card h3 {
+.info-box h3 {
     color: #499993;
     font-size: 1.5em;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-.pricing-card .price {
-    font-size: 2em;
-    color: #3a7071;
-    font-weight: 800;
-    margin-bottom: 20px;
-    transition: color 0.3s ease;
-}
-
-.pricing-card:hover .price {
-    color: #499993;
-}
-
-.pricing-card .description {
+.info-box p {
     color: #666;
     margin-bottom: 20px;
     font-size: 0.95em;
     line-height: 1.6;
 }
 
-.pricing-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-}
-
-.pricing-card ul li {
-    padding: 8px 0;
-    color: #333;
-    font-size: 0.9em;
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-.pricing-card ul li:hover {
-    transform: translateX(5px);
-}
-
-.pricing-card ul li::before {
-    content: "✓";
-    color: #499993;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-.pricing-note {
-    text-align: center;
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ==========================================================================
-   Contact Form Styles
-   ========================================================================== */
+/* Contact section */
 .contact {
     width: 100%;
     padding: 60px 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(244, 244, 244, 0.5);
 }
 
 .contact-content {
@@ -414,23 +197,10 @@
     padding: 0 20px;
 }
 
-.contact form {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.contact form:hover {
-    transform: translateY(-5px);
-}
-
 .contact label {
     display: block;
     margin: 10px 0 5px;
     font-weight: 600;
-    color: #499993;
 }
 
 .contact input, 
@@ -438,19 +208,18 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 2px solid #ddd;
+    border: 0px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    background-color: #fffa;
 }
 
 .contact input:focus, 
 .contact textarea:focus {
     outline: none;
     border-color: #499993;
-    box-shadow: 0 0 0 3px rgba(73, 153, 147, 0.1);
 }
 
 .contact button {
@@ -463,33 +232,14 @@
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .contact button:hover {
     background: #3a7071;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.success-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    color: #333;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    font-size: 1.2rem;
-    text-align: center;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
-    border-left: 4px solid #499993;
-}
-
-/* Quick Contact Buttons */
+/* Quick buttons */
 .quick-buttons {
     display: flex;
     justify-content: center;
@@ -512,13 +262,9 @@
 .quick-buttons a:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    background: #499993;
-    color: white;
 }
 
-/* ==========================================================================
-   Reviews Section Styles
-   ========================================================================== */
+/* Reviews section */
 .reviews {
     width: 100%;
     padding: 60px 0;
@@ -531,23 +277,14 @@
     padding: 0 20px;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
 .review {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
-.review:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.review:last-child {
+    border-bottom: none;
 }
 
 .review strong {
@@ -555,9 +292,7 @@
     font-weight: 600;
 }
 
-/* ==========================================================================
-   Footer Styles
-   ========================================================================== */
+/* Footer styles */
 footer {
     width: 100%;
     padding: 12px 20px;
@@ -581,7 +316,7 @@ footer p:not(:last-child)::after {
 footer a {
     color: white;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 footer a:hover {
@@ -589,85 +324,339 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media (max-width: 900px) {
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 20px;
+/* Footer responsive */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 15px;
+        line-height: 1.6;
     }
+    
+    footer p {
+        display: block;
+    }
+    
+    footer p:not(:last-child)::after {
+        display: none;
+    }
+}
 
-    .video-container {
-        flex-direction: column;
-    }
+.icon {
+    margin-right: 8px;
+}
 
-    .video-text {
-        text-align: center;
-        align-items: center;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
     }
+    to {
+        opacity: 0;
+    }
+}
 
-    .video-text h2,
-    .video-text p {
-        text-align: center;
-    }
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f8ff;
+    color: #333;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 1; /* Synlighed starter ved 1 */
+    transition: opacity 5s ease-out; /* Tilføj en jævn fade-effekt */
+}
 
-    .video-btn {
-        align-self: center;
-    }
+.welcome-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.welcome-heading {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.welcome-text {
+    text-align: center;
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    order: 3;
+}
+
+.welcome-content img {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5%;
+    order: 2;
+}
+
+.approval-box {
+    order: 1;
+    background-color: #499993;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.approval-box p {
+    margin: 0;
+    color: white;
+    font-weight: 600; /* Make the text bolder */
 }
 
 @media (max-width: 768px) {
     header img {
         height: 50px;
     }
-
-    .pricing-grid {
+    
+    .info-boxes {
         grid-template-columns: 1fr;
     }
-
+    
     .quick-buttons {
         flex-direction: column;
     }
-
+    
     .quick-buttons a {
         width: auto;
         text-align: center;
     }
-
+    
     .welcome-text {
         padding: 0 20px;
     }
-
+    
     .approval-box {
-        width: calc(100% - 40px);
+        width: calc(100% - 100px);
+    }
+}
+
+/* Video section styles */
+.video-section {
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.video-container {
+    display: flex;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.video-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Ensures button aligns left */
+}
+
+.video-text p {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.video-wrapper {
+    flex: 1;
+    aspect-ratio: 16/9; /* Forces 16:9 aspect ratio */
+    width: 100%;
+    max-width: 560px; /* Prevents video from getting too large */
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #499993;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Ensures button stays left-aligned */
+}
+
+.video-btn:hover {
+    background: #3a7071;
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .video-text {
+        text-align: center;
+        align-items: center; /* Centers content on mobile */
+    }
+    
+    .video-text h2 {
+        text-align: center;
+    }
+    
+    .video-text p {
+        text-align: center;
+    }
+    
+    .video-wrapper {
+        width: 100%;
     }
 
-    footer {
-        padding: 10px 15px;
-        line-height: 1.6;
+    .video-btn {
+        align-self: center; /* Centers button on mobile */
     }
+}
 
-    footer p {
-        display: block;
-    }
+/* Pricing section styles */
+.pricing-section {
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.5);
+}
 
-    footer p:not(:last-child)::after {
-        display: none;
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card h3 {
+    color: #499993;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.pricing-card .price {
+    font-size: 2em;
+    color: #3a7071;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.pricing-card .description {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.pricing-card ul li {
+    padding: 8px 0;
+    color: #333;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.pricing-card ul li::before {
+    content: "✓";
+    color: #499993;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.pricing-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
     }
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
+    .pricing-grid {
+        grid-template-columns: 1fr;
     }
+}
 
-    h2 {
-        font-size: 1.8em;
+@media (max-width: 900px) {
+    .info-boxes {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .welcome-content img {
+@media (max-width: 600px) {
+    .info-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fade-image {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5%;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .fade-image {
         width: 100%;
         max-width: 350px;
     }
 }
+

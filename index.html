@@ -2,7 +2,6 @@
 <html lang="da">
 <head>
     <meta charset="UTF-8">
-    <base href="/etikpleje/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="thumbnail.png" />
     <meta property="og:title" content="Etikpleje" />
@@ -12,83 +11,36 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
 </head>
 <body>
+    <!-- Background Image -->
     <div class="background-wrapper">
         <img src="baggrund.png" alt="Background">
     </div>
 
+    <!-- Header -->
     <header>
         <div class="header-content">
             <img src="logo.png" alt="Etikpleje Logo">
-            <a href="#contact">Kontakt</a>
+            <a href="#contact" class="header-button">Kontakt</a>
         </div>
     </header>
 
+    <!-- Main Container -->
     <div class="container">
-        <div class="section">
+        <!-- Welcome Section -->
+        <div class="section welcome-block">
             <div class="section-content">
                 <div class="welcome-section">
-                    <h1 class="welcome-heading"><span class="brand-name"><span class="etik">Velkommen til Etik</span><span class="pleje">pleje</span></span></h1>
+                    <h1 class="welcome-heading">
+                        <span class="brand-name">
+                            <span class="etik">Velkommen til Etik</span><span class="pleje">pleje</span>
+                        </span>
+                    </h1>
                     <div class="welcome-content">
                         <div class="welcome-text">
                             <p>Hos Etikpleje stræber vi efter at levere pleje og omsorg til vores ældre på en etisk og professionelt forsvarlig måde. Det fortjener ikke kun vores ældre, men alle mennesker, uanset diagnoser eller andre forhold.</p>
                         </div>
 
-                        <!-- Image element -->
-                        <!-- Update the image element in your HTML to include the fade-image class -->
-                        <img id="milan-camilla" class="fade-image" src="collage/image1.jpeg" alt="Billede af Milan og Camilla">
-
-                        <!-- Update your JavaScript for the image transition -->
-                        <script>
-                            // List of image filenames
-                            const images = [
-                                "collage/image1.jpeg",
-                                "collage/image2.jpeg",
-                                "collage/241001-elder-care-stock-vl-304p-668bf8.webp"
-                            ];
-
-                            const imageElement = document.getElementById("milan-camilla");
-                            let currentIndex = 0;
-                            let isTransitioning = false;
-
-                            // Preload all images
-                            images.forEach(src => {
-                                const img = new Image();
-                                img.src = src;
-                            });
-
-                            // Function to change image with proper fade effect
-                            function changeImage() {
-                                if (isTransitioning) return;
-                                isTransitioning = true;
-
-                                const nextIndex = (currentIndex + 1) % images.length;
-                                const nextImage = new Image();
-                                nextImage.src = images[nextIndex];
-
-                                nextImage.onload = () => {
-                                    imageElement.style.opacity = '0';
-                                    
-                                    setTimeout(() => {
-                                        imageElement.src = images[nextIndex];
-                                        imageElement.style.opacity = '1';
-                                        currentIndex = nextIndex;
-                                        
-                                        setTimeout(() => {
-                                            isTransitioning = false;
-                                        }, 1000);
-                                    }, 1000);
-                                };
-                            }
-
-                            // Make sure the first image is fully loaded before starting the slideshow
-                            window.addEventListener('load', () => {
-                                imageElement.style.opacity = '1';
-                                // Start the slideshow with a slight delay to ensure everything is loaded
-                                setTimeout(() => {
-                                    setInterval(changeImage, 5000); // Change every 5 seconds
-                                }, 1000);
-                            });
-                        </script>
+                        <img id="milan-camilla" src="collage/image1.jpeg" alt="Billede af Milan og Camilla" class="fade-image">
 
                         <div class="approval-box">
                             <p>Vi er godkendt af Hedensted Kommune som privat leverandør inden for pleje og omsorg.</p>
@@ -98,7 +50,8 @@
             </div>
         </div>
 
-        <div class="section">
+        <!-- About Us Section -->
+        <div class="section about-block">
             <div class="section-content">
                 <h2>Hvem er vi?</h2>
                 <p>Vi er Camilla og Milan Maidan, et ægtepar med en fælles passion for at skabe tryghed og nærvær i ældreplejen. Camilla er social- og sundhedshjælper, mens Milan er socialpædagog med diplom i neuropædagogik og neuropsykologi. Sammen har vi grundlagt Etikpleje for at sikre, at alle ældre får den respektfulde og kompetente pleje, de fortjener.</p>
@@ -107,7 +60,8 @@
             </div>
         </div>
 
-        <div class="section video-section">
+        <!-- Video Section -->
+        <div class="section video-block">
             <div class="section-content video-container">
                 <div class="video-text">
                     <h2>Vælg Selv Din Hjemmehjælp</h2>
@@ -128,9 +82,10 @@
             </div>
         </div>
 
-        <div class="section">
-            <div class="section-content pricing-section">
-            <h2>Vores Priser</h2>
+        <!-- Pricing Section -->
+        <div class="section pricing-block">
+            <div class="section-content">
+                <h2>Vores Priser</h2>
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <h3>Basis Pleje</h3>
@@ -172,12 +127,28 @@
             </div>
         </div>
 
-        <div class="section">
+        <!-- Info Boxes -->
+        <div class="section pricing-block">
             <div class="section-content">
                 <h2>Vores Services</h2>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <h3>Døgnpleje</h3>
+                        <p>Vi tilbyder pleje og omsorg døgnet rundt, så du altid kan få den hjælp, du har brug for.</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Personlig Pleje</h3>
+                        <p>Vi hjælper med personlig hygiejne, påklædning og andre daglige gøremål med respekt for din værdighed.</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Medicinhåndtering</h3>
+                        <p>Sikker og professionel håndtering af din medicin, så du altid får den rette dosis på det rette tidspunkt.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- Contact Section -->
         <div id="contact" class="contact">
             <div class="contact-content">
                 <h2>Kontakt os</h2>
@@ -195,47 +166,10 @@
                 
                     <button type="submit">Send Besked</button>
                 </form>
-                
 
                 <div id="successMessage" class="success-message" style="display: none;">
                     Tak! Formularen er blevet indsendt. Vi svarer dig snart!
                 </div>
-
-                <script>
-                    const form = document.getElementById("web3form");
-                    const successMessage = document.getElementById("successMessage");
-
-                    form.addEventListener("submit", async function (event) {
-                        event.preventDefault(); // Forhindre standard formular-indsendelse
-                        const formData = new FormData(form);
-
-                        try {
-                            const response = await fetch(form.action, {
-                                method: "POST",
-                                body: formData,
-                            });
-
-                            if (response.ok) {
-                                form.style.display = "none"; // Skjul formularen
-                                successMessage.style.display = "block"; // Vis beskeden
-
-                                // Start fade-out efter et kort interval
-                                setTimeout(() => {
-                                    successMessage.style.opacity = "0"; // Skru ned for synlighed
-                                }, 4000); // Vent 2 sekunder før fade-out starter
-
-                                // Skjul beskeden helt efter 5 sekunder
-                                setTimeout(() => {
-                                    successMessage.style.display = "none";
-                                }, 10000); // Vent 7 sekunder totalt (2 + 5)
-                            } else {
-                                alert("Noget gik galt. Prøv igen.");
-                            }
-                        } catch (error) {
-                            alert("Der opstod en fejl ved indsendelse af formularen.");
-                        }
-                    });
-                </script>                
 
                 <div class="quick-buttons">
                     <a href="tel:+4531310542"><span class="icon">📞</span>Ring til os</a>
@@ -244,48 +178,37 @@
             </div>
         </div>
 
+        <!-- Reviews Section -->
         <div class="reviews">
             <div class="reviews-content">
                 <h2>Tidligere Kunder og Anmeldelser</h2>
-                <div class="review">
-                    <p><strong>John Hansen</strong>:</p>
-                    <p>"Fantastisk service og en personlig tilgang, som gjorde en stor forskel for vores familie."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Anna Nielsen</strong>:</p>
-                    <p>"Professionelle og omsorgsfulde. Jeg følte mig tryg hele vejen igennem."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Peter Madsen</strong>:</p>
-                    <p>"Fantastisk service og et personale, der virkelig går op i deres arbejde. De gør en forskel hver dag."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Sofie Andersen</strong>:</p>
-                    <p>"Min mor får hjælp fra dem, og vi har aldrig været mere trygge. De er altid punktlige og venlige."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Lars Hansen</strong>:</p>
-                    <p>"Professionelle, imødekommende og altid klar til at hjælpe. Det betyder meget for os som pårørende."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Maria Jensen</strong>:</p>
-                    <p>"Jeg er virkelig imponeret over deres omsorg og opmærksomhed. Kan varmt anbefales."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-                <div class="review">
-                    <p><strong>Jørgen Thomsen</strong>:</p>
-                    <p>"Det bedste valg, vi har taget for min far. Han bliver altid behandlet med respekt og værdighed."</p>
-                    <p>⭐⭐⭐⭐⭐</p>
+                <div class="reviews-grid">
+                    <div class="review">
+                        <p><strong>John Hansen</strong>:</p>
+                        <p>"Fantastisk service og en personlig tilgang, som gjorde en stor forskel for vores familie."</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="review">
+                        <p><strong>Anna Nielsen</strong>:</p>
+                        <p>"Professionelle og omsorgsfulde. Jeg følte mig tryg hele vejen igennem."</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="review">
+                        <p><strong>Peter Madsen</strong>:</p>
+                        <p>"Fantastisk service og et personale, der virkelig går op i deres arbejde. De gør en forskel hver dag."</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="review">
+                        <p><strong>Sofie Andersen</strong>:</p>
+                        <p>"Min mor får hjælp fra dem, og vi har aldrig været mere trygge. De er altid punktlige og venlige."</p>
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Etikpleje</p>
         <p>Adresse: Hejrevej 16, 7100 Vejle</p>
@@ -294,8 +217,70 @@
         <p>CVR: 42911895</p>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Smooth scroll to contact section
+        // Image rotation
+        const images = [
+            "collage/image1.jpeg",
+            "collage/image2.jpeg",
+            "collage/241001-elder-care-stock-vl-304p-668bf8.webp",
+        ];
+
+        const imageElement = document.getElementById("milan-camilla");
+        let currentIndex = 0;
+
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        function changeImage() {
+            imageElement.style.opacity = 0;
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                imageElement.src = images[currentIndex];
+                imageElement.onload = () => {
+                    imageElement.style.opacity = 1;
+                };
+            }, 1000);
+        }
+
+        setInterval(changeImage, 8000);
+
+        // Form handling
+        const form = document.getElementById("web3form");
+        const successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    form.style.display = "none";
+                    successMessage.style.display = "block";
+
+                    setTimeout(() => {
+                        successMessage.style.opacity = "0";
+                    }, 4000);
+
+                    setTimeout(() => {
+                        successMessage.style.display = "none";
+                    }, 10000);
+                } else {
+                    alert("Noget gik galt. Prøv igen.");
+                }
+            } catch (error) {
+                alert("Der opstod en fejl ved indsendelse af formularen.");
+            }
+        });
+
+        // Smooth scroll
         document.querySelector('header a').addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
