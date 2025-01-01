@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="background-wrapper">
-        <img src="pleje2.jpeg" alt="Background">
+        <img src="baggrund.png" alt="Background">
     </div>
 
     <header>
@@ -30,9 +30,66 @@
                     <h1 class="welcome-heading"><span class="brand-name"><span class="etik">Velkommen til Etik</span><span class="pleje">pleje</span></span></h1>
                     <div class="welcome-content">
                         <div class="welcome-text">
-                            <p>Vi er en lokal personplejer-virksomhed med en stærk forpligtelse til at sætte de ældre og deres individuelle behov i fokus. Vores mission er at skabe en hverdag, hvor alle føler sig både set, hørt og værdsat. Med en personlig og nærværende tilgang arbejder vi for at levere pleje og støtte, der ikke blot opfylder praktiske behov, men også bidrager til livskvalitet og tryghed. Vi tror på, at omsorg handler om mere end blot opgaver – det handler om at skabe relationer og sikre, at hver enkelt føler sig betydningsfuld.</p>
+                            <p>Hos Etikpleje stræber vi efter at levere pleje og omsorg til vores ældre på en etisk og professionelt forsvarlig måde. Det fortjener ikke kun vores ældre, men alle mennesker, uanset diagnoser eller andre forhold.</p>
                         </div>
-                        <img src="milan-camilla.jpg" alt="Billede af Milan og Camilla">
+
+                        <!-- Image element -->
+                        <!-- Update the image element in your HTML to include the fade-image class -->
+                        <img id="milan-camilla" class="fade-image" src="collage/image1.jpeg" alt="Billede af Milan og Camilla">
+
+                        <!-- Update your JavaScript for the image transition -->
+                        <script>
+                            // List of image filenames
+                            const images = [
+                                "collage/image1.jpeg",
+                                "collage/image2.jpeg",
+                                "collage/241001-elder-care-stock-vl-304p-668bf8.webp"
+                            ];
+
+                            const imageElement = document.getElementById("milan-camilla");
+                            let currentIndex = 0;
+                            let isTransitioning = false;
+
+                            // Preload all images
+                            images.forEach(src => {
+                                const img = new Image();
+                                img.src = src;
+                            });
+
+                            // Function to change image with proper fade effect
+                            function changeImage() {
+                                if (isTransitioning) return;
+                                isTransitioning = true;
+
+                                const nextIndex = (currentIndex + 1) % images.length;
+                                const nextImage = new Image();
+                                nextImage.src = images[nextIndex];
+
+                                nextImage.onload = () => {
+                                    imageElement.style.opacity = '0';
+                                    
+                                    setTimeout(() => {
+                                        imageElement.src = images[nextIndex];
+                                        imageElement.style.opacity = '1';
+                                        currentIndex = nextIndex;
+                                        
+                                        setTimeout(() => {
+                                            isTransitioning = false;
+                                        }, 1000);
+                                    }, 1000);
+                                };
+                            }
+
+                            // Make sure the first image is fully loaded before starting the slideshow
+                            window.addEventListener('load', () => {
+                                imageElement.style.opacity = '1';
+                                // Start the slideshow with a slight delay to ensure everything is loaded
+                                setTimeout(() => {
+                                    setInterval(changeImage, 5000); // Change every 5 seconds
+                                }, 1000);
+                            });
+                        </script>
+
                         <div class="approval-box">
                             <p>Vi er godkendt af Hedensted Kommune som privat leverandør inden for pleje og omsorg.</p>
                         </div>
@@ -47,6 +104,77 @@
                 <p>Vi er Camilla og Milan Maidan, et ægtepar med en fælles passion for at skabe tryghed og nærvær i ældreplejen. Camilla er social- og sundhedshjælper, mens Milan er socialpædagog med diplom i neuropædagogik og neuropsykologi. Sammen har vi grundlagt Etikpleje for at sikre, at alle ældre får den respektfulde og kompetente pleje, de fortjener.</p>
                 <p>Med mange års erfaring fra både Hedensted og Vejle kommuner har vi opbygget en solid forståelse for ældreplejens mange facetter. Vi tror på, at god pleje handler om mere end de praktiske opgaver – det handler om at skabe nærvær og små øjeblikke af glæde i hverdagen.</p>
                 <p>Hos Etikpleje er vores mål at sætte borgerens trivsel og værdighed i centrum, altid med fokus på kvalitet, respekt og empati.</p>
+            </div>
+        </div>
+
+        <div class="section video-section">
+            <div class="section-content video-container">
+                <div class="video-text">
+                    <h2>Vælg Selv Din Hjemmehjælp</h2>
+                    <p>Som borger har du ret til frit at vælge mellem kommunal eller privat hjemmehjælp, når du er blevet visiteret til hjemmehjælp. Se videoen her ved siden af for at lære mere om dine muligheder, eller klik på knappen nedenfor for yderligere information.</p>
+                    <a href="https://www.borger.dk/aeldre/Hjemmehjaelp-og-aeldrepleje/Hjemmehjaelp" class="video-btn" target="_blank">Læs mere her</a>
+                </div>
+                <div class="video-wrapper">
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/FDFRFMCVZWU" 
+                        title="Information om frit valg af hjemmehjælp" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content pricing-section">
+            <h2>Vores Priser</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Basis Pleje</h3>
+                        <div class="price">399 kr/t</div>
+                        <p class="description">Grundlæggende pleje og omsorg til dig, der har brug for hjælp i hverdagen</p>
+                        <ul>
+                            <li>Personlig pleje</li>
+                            <li>Praktisk hjælp</li>
+                            <li>Medicinadministration</li>
+                            <li>Støtte til daglige gøremål</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Udvidet Pleje</h3>
+                        <div class="price">499 kr/t</div>
+                        <p class="description">Omfattende pleje med ekstra services og fleksibilitet</p>
+                        <ul>
+                            <li>Alt fra Basis Pleje</li>
+                            <li>Ledsagelse til læge/hospital</li>
+                            <li>Ernæringsvejledning</li>
+                            <li>Sociale aktiviteter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Specialiseret Pleje</h3>
+                        <div class="price">599 kr/t</div>
+                        <p class="description">Skræddersyet pleje til særlige behov og komplekse situationer</p>
+                        <ul>
+                            <li>Alt fra Udvidet Pleje</li>
+                            <li>Døgnpleje</li>
+                            <li>Specialiseret omsorg</li>
+                            <li>Akut assistance</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="pricing-note">Alle priser er vejledende. Den endelige pris afhænger af dine specifikke behov og den kommunale visitation. Kontakt os for en personlig samtale om dine behov.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <h2>Vores Services</h2>
             </div>
         </div>
 
@@ -116,48 +244,6 @@
             </div>
         </div>
 
-        <div class="section video-section">
-            <div class="section-content video-container">
-                <div class="video-text">
-                    <h2>Vælg Selv Din Hjemmehjælp</h2>
-                    <p>Som borger har du ret til frit at vælge mellem kommunal eller privat hjemmehjælp, når du er blevet visiteret til hjemmehjælp. Se videoen her ved siden af for at lære mere om dine muligheder, eller klik på knappen nedenfor for yderligere information.</p>
-                    <a href="https://ældrebestemmerselv.dk/" class="video-btn">Læs mere her</a>
-                </div>
-                <div class="video-wrapper">
-                    <iframe 
-                        width="560" 
-                        height="315" 
-                        src="https://www.youtube.com/embed/FDFRFMCVZWU" 
-                        title="Information om frit valg af hjemmehjælp" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-content">
-                <img src="pleje.jpeg" alt="Billede af pleje">
-            </div>
-        </div>
-
-        <div class="info-boxes">
-            <div class="info-box">
-                <h3>Døgnpleje</h3>
-                <p>Vi tilbyder pleje og omsorg døgnet rundt, så du altid kan få den hjælp, du har brug for.</p>
-            </div>
-            <div class="info-box">
-                <h3>Personlig Pleje</h3>
-                <p>Vi hjælper med personlig hygiejne, påklædning og andre daglige gøremål med respekt for din værdighed.</p>
-            </div>
-            <div class="info-box">
-                <h3>Medicinhåndtering</h3>
-                <p>Sikker og professionel håndtering af din medicin, så du altid får den rette dosis på det rette tidspunkt.</p>
-            </div>
-        </div>
-
         <div class="reviews">
             <div class="reviews-content">
                 <h2>Tidligere Kunder og Anmeldelser</h2>
@@ -213,13 +299,6 @@
         document.querySelector('header a').addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // Parallax effect for background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const background = document.querySelector('.background-wrapper img');
-            background.style.transform = `translate3d(0, ${scrolled * 0.5}px, 0) scale(1.1)`;
         });
     </script>
 </body>
