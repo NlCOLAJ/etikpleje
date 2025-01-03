@@ -609,6 +609,7 @@ footer a:hover {
     
     .welcome-text {
         padding: 0 20px;
+        margin-bottom: 120px;
     }
     
     .approval-box {
@@ -640,6 +641,10 @@ footer a:hover {
     .video-btn {
         align-self: center;
     }
+    .welcome-heading {
+        font-size: 2.8rem;
+    }
+
 }
 
 @media (max-width: 900px) {
@@ -712,5 +717,8 @@ footer a:hover {
     .pricing-grid,
     .info-boxes {
         max-width: 1200px; /* Increase the max-width to make the content wider */
+    }
+    .welcome-heading {
+        font-size: 5rem;
     }
 }
